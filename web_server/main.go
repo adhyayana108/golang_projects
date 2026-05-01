@@ -109,7 +109,6 @@ func formHandler(w http.ResponseWriter , r *http.Request) {
 	json.NewEncoder(w).Encode(payload)
 }
 
-
 func main() {
 	port := os.Getenv("PORT")
 	if port == ""{
@@ -133,17 +132,15 @@ func main() {
         IdleTimeout:  60 * time.Second,
     }
 
-	fmt.Printf("┌─────────────────────────────────────────┐\n")
-	fmt.Printf("│   Go Web Server                         │\n")
-	fmt.Printf("│   Listening on http://localhost:%s      │\n", port)
-	fmt.Printf("│                                         │\n")
-	fmt.Printf("│   Routes:                               │\n")
-	fmt.Printf("│   GET  /              → index.html      │\n")
-	fmt.Printf("│   GET  /form.html     → contact form    │\n")
-	fmt.Printf("│   GET  /hello         → hello endpoint  │\n")
-	fmt.Printf("│   POST /form          → form handler    │\n")
-	fmt.Printf("│   GET  /api/health    → health check    │\n")
-	fmt.Printf("└─────────────────────────────────────────┘\n")
+	fmt.Printf("Go Web Server\n")
+	fmt.Printf("Listening on http://localhost:%s \n", port)
+	fmt.Printf("Routes: \n")
+	fmt.Printf("GET  /              → index.html\n")
+	fmt.Printf("GET  /form.html     → contact form\n")
+	fmt.Printf("GET  /hello         → hello endpoint\n")
+	fmt.Printf("POST /form          → form handler\n")
+	fmt.Printf("GET  /api/health    → health check\n")
+	
  
 	if err := server.ListenAndServe(); err != nil {
 		log.Fatalf("Server failed to start: %v", err)
